@@ -1,3 +1,15 @@
+type Stack = Vec<Vec<char>>;
+
+struct Instruction {
+    From: u32,
+    Amount: u32,
+    To: u32,
+}
+
+fn parse_to(input: &str) -> (Stack, Instruction) {
+    let (stack, instructions) = input.split_once("\n\n").unwrap();
+}
+
 pub fn process_part1(input: &str) -> String {
     "".to_string()
 }
