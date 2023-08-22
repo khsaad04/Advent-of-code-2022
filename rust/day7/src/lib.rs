@@ -1,11 +1,5 @@
-fn parse(input: &str) -> Vec<&str> {
-    let vec = input.split("$ ").collect();
-    vec
-}
-
 pub fn process_part1(input: &str) -> String {
     let result: usize = 0;
-    let vec = parse(&input);
     result.to_string()
 }
 
