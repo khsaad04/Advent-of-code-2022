@@ -1,5 +1,5 @@
-pub fn process_part1(input: &str) -> String {
-    let result: u32 = input
+pub fn process_part1(input: &str) -> i32 {
+    input
         .lines()
         .map(|turn| {
             let moves: Vec<&str> = turn.split(' ').collect();
@@ -25,12 +25,11 @@ pub fn process_part1(input: &str) -> String {
                 _ => 0,
             }
         })
-        .sum();
-    result.to_string()
+        .sum()
 }
 
-pub fn process_part2(input: &str) -> String {
-    let result: u32 = input
+pub fn process_part2(input: &str) -> i32 {
+    input
         .lines()
         .map(|turn| {
             let moves: Vec<&str> = turn.split(' ').collect();
@@ -56,8 +55,7 @@ pub fn process_part2(input: &str) -> String {
                 _ => 0,
             }
         })
-        .sum();
-    result.to_string()
+        .sum()
 }
 
 #[cfg(test)]
@@ -72,12 +70,12 @@ C Z
     #[test]
     fn part1() {
         let result = process_part1(INPUT);
-        assert_eq!(result, "15");
+        assert_eq!(result, 15);
     }
 
     #[test]
     fn part2() {
         let result = process_part2(INPUT);
-        assert_eq!(result, "12");
+        assert_eq!(result, 12);
     }
 }

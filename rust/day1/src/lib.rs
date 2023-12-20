@@ -1,25 +1,22 @@
-pub fn process_part1(input: &str) -> String {
-    let result = input
+pub fn process_part1(input: &str) -> i32 {
+    input
         .split("\n\n")
         .map(|elf| {
             elf.lines()
-                .map(|item| item.parse::<u32>().unwrap())
-                .sum::<u32>()
+                .map(|item| item.parse::<i32>().unwrap())
+                .sum::<i32>()
         })
         .max()
-        .unwrap();
-    result.to_string()
+        .unwrap()
 }
 
-pub fn process_part2(input: &str) -> String {
-    let mut result: Vec<u32> = input
+pub fn process_part2(input: &str) -> i32 {
+    let mut result: Vec<i32> = input
         .split("\n\n")
-        .map(|elf| elf.lines().map(|item| item.parse::<u32>().unwrap()).sum())
+        .map(|elf| elf.lines().map(|item| item.parse::<i32>().unwrap()).sum())
         .collect();
     result.sort_by(|a, b| b.cmp(a));
-    let sum: u32 = result.iter().take(3).sum();
-
-    sum.to_string()
+    result.iter().take(3).sum()
 }
 
 #[cfg(test)]
@@ -45,12 +42,12 @@ mod tests {
     #[test]
     fn part1() {
         let result = process_part1(INPUT);
-        assert_eq!(result, "24000");
+        assert_eq!(result, 24000);
     }
 
     #[test]
     fn part2() {
         let result = process_part2(INPUT);
-        assert_eq!(result, "45000");
+        assert_eq!(result, 45000);
     }
 }
