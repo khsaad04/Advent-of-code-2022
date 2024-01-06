@@ -15,8 +15,8 @@ pub fn process_part2(input: &str) -> i32 {
         .split("\n\n")
         .map(|elf| elf.lines().map(|item| item.parse::<i32>().unwrap()).sum())
         .collect();
-    result.sort_by(|a, b| b.cmp(a));
-    result.iter().take(3).sum()
+    result.sort();
+    result.iter().rev().take(3).sum()
 }
 
 #[cfg(test)]
