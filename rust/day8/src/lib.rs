@@ -1,6 +1,6 @@
 pub fn process_part1(input: &str) -> String {
     let edge = &input.lines().count() * 2 + input.lines().last().unwrap().len() - 4;
-    let result = 0;
+    let result = edge;
     result.to_string()
 }
 
