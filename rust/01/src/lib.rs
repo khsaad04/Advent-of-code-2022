@@ -1,19 +1,19 @@
-pub fn process_part1(input: &str) -> i32 {
+pub fn part1(input: &str) -> usize {
     input
         .split("\n\n")
         .map(|elf| {
             elf.lines()
-                .map(|item| item.parse::<i32>().unwrap())
-                .sum::<i32>()
+                .map(|item| item.parse::<usize>().unwrap())
+                .sum::<usize>()
         })
         .max()
         .unwrap()
 }
 
-pub fn process_part2(input: &str) -> i32 {
-    let mut result: Vec<i32> = input
+pub fn part2(input: &str) -> usize {
+    let mut result: Vec<_> = input
         .split("\n\n")
-        .map(|elf| elf.lines().map(|item| item.parse::<i32>().unwrap()).sum())
+        .map(|elf| elf.lines().map(|item| item.parse::<usize>().unwrap()).sum())
         .collect();
     result.sort();
     result.iter().rev().take(3).sum()
@@ -21,7 +21,7 @@ pub fn process_part2(input: &str) -> i32 {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use super::{part1, part2};
 
     const INPUT: &str = "1000
 2000
@@ -40,14 +40,14 @@ mod tests {
 ";
 
     #[test]
-    fn part1() {
-        let result = process_part1(INPUT);
+    fn test_part1() {
+        let result = part1(INPUT);
         assert_eq!(result, 24000);
     }
 
     #[test]
-    fn part2() {
-        let result = process_part2(INPUT);
+    fn test_part2() {
+        let result = part2(INPUT);
         assert_eq!(result, 45000);
     }
 }
