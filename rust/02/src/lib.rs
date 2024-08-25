@@ -1,4 +1,4 @@
-pub fn process_part1(input: &str) -> i32 {
+pub fn part1(input: &str) -> usize {
     input
         .lines()
         .map(|turn| {
@@ -28,7 +28,7 @@ pub fn process_part1(input: &str) -> i32 {
         .sum()
 }
 
-pub fn process_part2(input: &str) -> i32 {
+pub fn part2(input: &str) -> usize {
     input
         .lines()
         .map(|turn| {
@@ -68,14 +68,14 @@ C Z
 ";
 
     #[test]
-    fn part1() {
-        let result = process_part1(INPUT);
+    fn test_part1() {
+        let result = part1(INPUT);
         assert_eq!(result, 15);
     }
 
     #[test]
-    fn part2() {
-        let result = process_part2(INPUT);
+    fn test_part2() {
+        let result = part2(INPUT);
         assert_eq!(result, 12);
     }
 }

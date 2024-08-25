@@ -1,35 +1,32 @@
 use std::collections::HashMap;
 
-pub fn process_part1(input: &str) -> String {
-    let letters = ('a'..='z')
+fn get_letters() -> HashMap<char, usize> {
+    ('a'..='z')
         .chain('A'..='Z')
         .enumerate()
         .map(|(i, c)| (c, i + 1))
-        .collect::<HashMap<char, usize>>();
+        .collect::<HashMap<char, usize>>()
+}
 
-    let result: usize = input
+pub fn part1(input: &str) -> usize {
+    let letters = get_letters();
+    input
         .lines()
         .map(|line| {
             let (a, b) = line.split_at(line.len() / 2);
             let common_char = a.chars().find(|c| b.contains(*c)).unwrap();
             letters.get(&common_char).unwrap()
         })
-        .sum();
-
-    result.to_string()
+        .sum()
 }
 
-pub fn process_part2(input: &str) -> String {
-    let letters = ('a'..='z')
-        .chain('A'..='Z')
-        .enumerate()
-        .map(|(i, c)| (c, i + 1))
-        .collect::<HashMap<char, usize>>();
+pub fn part2(input: &str) -> usize {
+    let letters = get_letters();
 
     let groups: Vec<_> = input.lines().collect();
     let groups: Vec<_> = groups.chunks(3).collect();
 
-    let result: usize = groups
+    groups
         .iter()
         .map(|group| {
             let common_char = group[0]
@@ -38,9 +35,7 @@ pub fn process_part2(input: &str) -> String {
                 .unwrap();
             letters.get(&common_char).unwrap()
         })
-        .sum();
-
-    result.to_string()
+        .sum()
 }
 
 #[cfg(test)]
@@ -56,14 +51,14 @@ CrZsJsPPZsGzwwsLwLmpwMDw
 ";
 
     #[test]
-    fn part1() {
-        let result = process_part1(INPUT);
-        assert_eq!(result, "157");
+    fn test_part1() {
+        let result = part1(INPUT);
+        assert_eq!(result, 157);
     }
 
     #[test]
-    fn part2() {
-        let result = process_part2(INPUT);
-        assert_eq!(result, "70");
+    fn test_part2() {
+        let result = part2(INPUT);
+        assert_eq!(result, 70);
     }
 }

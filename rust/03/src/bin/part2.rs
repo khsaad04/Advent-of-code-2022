@@ -1,9 +1,10 @@
-use day3::process_part2;
-use std::fs;
+use day3::part2;
+use std::{fs, io::Error};
 
-fn main() {
-    let input = fs::read_to_string("input.txt").unwrap();
-    let result = process_part2(&input);
+fn main() -> Result<(), Error> {
+    let input = fs::read_to_string("input.txt")?;
+    let result = part2(&input);
 
-    println!("Part 2: {result}");
+    println!("Part 1: {result}");
+    Ok(())
 }
