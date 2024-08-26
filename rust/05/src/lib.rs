@@ -45,13 +45,13 @@ fn get_top_row(stack: &Stack) -> String {
     stack.iter().filter_map(|m| m.last()).join("")
 }
 
-pub fn process_part1(input: Input) -> String {
+pub fn part1(input: Input) -> String {
     let (mut stack, moves) = input;
     move_stacks(&mut stack, &moves, 9000);
     Some(get_top_row(&stack)).unwrap()
 }
 
-pub fn process_part2(input: Input) -> String {
+pub fn part2(input: Input) -> String {
     let (mut stack, moves) = input;
     move_stacks(&mut stack, &moves, 9001);
     Some(get_top_row(&stack)).unwrap()
@@ -59,7 +59,7 @@ pub fn process_part2(input: Input) -> String {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use super::{parse, part1, part2};
 
     const INPUT: &str = "    [D]    
 [N] [C]    
@@ -73,14 +73,14 @@ move 1 from 1 to 2
 ";
 
     #[test]
-    fn part1() {
-        let result = process_part1(parse(INPUT));
+    fn test_part1() {
+        let result = part1(parse(INPUT));
         assert_eq!(result, "CMZ");
     }
 
     #[test]
-    fn part2() {
-        let result = process_part2(parse(INPUT));
+    fn test_part2() {
+        let result = part2(parse(INPUT));
         assert_eq!(result, "MCD");
     }
 }

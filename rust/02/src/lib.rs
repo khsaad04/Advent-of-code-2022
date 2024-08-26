@@ -60,7 +60,7 @@ pub fn part2(input: &str) -> usize {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use super::{part1, part2};
 
     const INPUT: &str = "A Y
 B X
