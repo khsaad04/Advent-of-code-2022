@@ -4,7 +4,7 @@ pub fn part1(input: &str) -> usize {
         .map(|elf| {
             elf.lines()
                 .map(|item| item.parse::<usize>().unwrap())
-                .sum::<usize>()
+                .sum()
         })
         .max()
         .unwrap()

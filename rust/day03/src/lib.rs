@@ -24,10 +24,10 @@ pub fn part2(input: &str) -> usize {
     let letters = get_letters();
 
     let groups: Vec<_> = input.lines().collect();
-    let groups: Vec<_> = groups.chunks(3).collect();
 
     groups
-        .iter()
+        .chunks(3)
+        .into_iter()
         .map(|group| {
             let common_char = group[0]
                 .chars()

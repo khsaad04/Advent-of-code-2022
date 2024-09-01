@@ -8,13 +8,13 @@ pub fn part1(input: &str) -> usize {
                     "X" => 1 + 3,
                     "Y" => 2 + 6,
                     "Z" => 3,
-                    _ => 0,
+                    _ => unreachable!(),
                 },
                 "B" => match moves[1] {
                     "X" => 1,
                     "Y" => 2 + 3,
                     "Z" => 3 + 6,
-                    _ => 0,
+                    _ => unreachable!(),
                 },
                 "C" => match moves[1] {
                     "X" => 1 + 6,
@@ -22,7 +22,7 @@ pub fn part1(input: &str) -> usize {
                     "Z" => 3 + 3,
                     _ => 0,
                 },
-                _ => 0,
+                _ => unreachable!(),
             }
         })
         .sum()
@@ -38,21 +38,21 @@ pub fn part2(input: &str) -> usize {
                     "X" => 3,
                     "Y" => 1 + 3,
                     "Z" => 2 + 6,
-                    _ => 0,
+                    _ => unreachable!(),
                 },
                 "B" => match moves[1] {
                     "X" => 1,
                     "Y" => 2 + 3,
                     "Z" => 3 + 6,
-                    _ => 0,
+                    _ => unreachable!(),
                 },
                 "C" => match moves[1] {
                     "X" => 2,
                     "Y" => 3 + 3,
                     "Z" => 1 + 6,
-                    _ => 0,
+                    _ => unreachable!(),
                 },
-                _ => 0,
+                _ => unreachable!(),
             }
         })
         .sum()
